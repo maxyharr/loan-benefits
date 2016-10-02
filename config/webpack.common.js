@@ -3,6 +3,8 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var helpers = require('./helpers');
 
+const prod = process.env.NODE_ENV == 'production' || process.env.ENV == 'production';
+
 module.exports = {
   entry: {
     'polyfills': './src/polyfills.ts',
@@ -19,6 +21,7 @@ module.exports = {
       {
         test: /\.ts$/,
         loaders: ['awesome-typescript-loader', 'angular2-template-loader']
+        .concat(prod ? [] : '@angularclass/hmr-loader')
       },
       {
         test: /\.html$/,
