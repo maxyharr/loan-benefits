@@ -2,11 +2,19 @@ import { NgModule, ApplicationRef } from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 
+import { NgReduxModule, NgRedux } from 'ng2-redux';
+import * as createLogger  from 'redux-logger';
+import { rootReducer } from '../reducers';
+
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr'
+
+// TODO place AppState interface in separate file
+interface IAppState { /* ... */ };
 
 @NgModule({
   imports: [
-    BrowserModule
+    BrowserModule,
+    NgReduxModule,
   ],
   declarations: [
     AppComponent
@@ -14,7 +22,12 @@ import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularcla
   bootstrap: [ AppComponent ]
 })
 export class AppModule {
-  constructor(public appRef: ApplicationRef) {}
+  constructor(
+    public appRef: ApplicationRef,
+    ngRedux: NgRedux<IAppState>
+  ) {
+    ngRedux.configureStore(rootReducer, {}, [ createLogger() ]);
+  }
 
   hmrOnInit(store: any): void {
     if (!store || !store.state) return;
