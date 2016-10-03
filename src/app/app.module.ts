@@ -9,6 +9,8 @@ import * as createLogger from 'redux-logger';
 
 import { rootReducer, IAppState } from '../store'; // looks for index.ts in store directory by default
 
+import {HasDataActions} from '../actions/has-data.actions';
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -16,6 +18,9 @@ import { rootReducer, IAppState } from '../store'; // looks for index.ts in stor
   ],
   declarations: [
     AppComponent
+  ],
+  providers: [
+    HasDataActions
   ],
   bootstrap: [ AppComponent ]
 })
@@ -29,6 +34,8 @@ export class AppModule {
 
   hmrOnInit(store: any): void {
     if (!store || !store.state) return;
+    console.log('HMR store', store);
+    console.log('store.state.data:', store.state.data)
     // inject AppStore here and update it
     // this.AppStore.update(store.state)
     if ('restoreInputValues' in store) {
