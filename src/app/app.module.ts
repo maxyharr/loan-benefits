@@ -4,9 +4,15 @@ import { AppComponent } from './app.component';
 
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr'
 
+import { NgReduxModule, NgRedux } from 'ng2-redux';
+import * as createLogger from 'redux-logger';
+
+import { rootReducer, IAppState } from '../store'; // looks for index.ts in store directory by default
+
 @NgModule({
   imports: [
-    BrowserModule
+    BrowserModule,
+    NgReduxModule,
   ],
   declarations: [
     AppComponent
@@ -14,7 +20,12 @@ import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularcla
   bootstrap: [ AppComponent ]
 })
 export class AppModule {
-  constructor(public appRef: ApplicationRef) {}
+  constructor(
+    public appRef: ApplicationRef,
+    ngRedux: NgRedux<IAppState>
+  ) {
+    ngRedux.configureStore(rootReducer, {}, [ createLogger() ]);
+  }
 
   hmrOnInit(store: any): void {
     if (!store || !store.state) return;
