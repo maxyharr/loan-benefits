@@ -1,0 +1,10 @@
+{
+  "engines": {
+    "npm": "3.8.x",
+    "node": "5.10.x"
+  },
+  "scripts": {
+    "postinstall": "cd client && npm install && npm run build && cd .. && npm run link_public",
+    "link_public": "rm -rf public && ln -s client/dist public"
+  }
+}
