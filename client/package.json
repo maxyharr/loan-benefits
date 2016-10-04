@@ -7,7 +7,7 @@
     "start:hot": "webpack-dev-server --progress --port 3000 --inline --hot",
     "test": "karma start",
     "build": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail",
-    "postinstall": "typings install"
+    "postinstall": "[ \"$NODE_ENV\" != production ] && typings install"
   },
   "license": "MIT",
   "dependencies": {
