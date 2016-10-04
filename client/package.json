@@ -6,7 +6,7 @@
     "start": "webpack-dev-server --progress --port 3000 --inline",
     "start:hot": "webpack-dev-server --progress --port 3000 --inline --hot",
     "test": "karma start",
-    "build": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail",
+    "prod_build": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail",
     "postinstall": "typings install"
   },
   "license": "MIT",
