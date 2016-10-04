@@ -3,6 +3,6 @@
     "core-js": "registry:dt/core-js",
     "jasmine": "registry:dt/jasmine",
     "node": "registry:dt/node",
-    "redux-logger": "registry:dt/redux-logger",
+    "redux-logger": "registry:dt/redux-logger"
   }
 }
