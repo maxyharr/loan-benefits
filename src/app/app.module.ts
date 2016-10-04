@@ -32,6 +32,7 @@ export class AppModule {
     ngRedux.configureStore(rootReducer, {}, [ createLogger() ]);
   }
 
+  // TODO: Configre HMR for NG2-Redux store
   hmrOnInit(store: any): void {
     if (!store || !store.state) return;
     console.log('HMR store', store);
