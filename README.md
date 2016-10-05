@@ -4,10 +4,10 @@
 
 #### Clone repo
 - Follow these instructions for the easiest way to clone and already have it setup to track heroku
-    - Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line) if you don't already have it
-    - `heroku login` # Then enter your username and password and follow the prompts to create a new SSH public key
-    - `heroku git:clone -a loan-benefits`
-    - `cd loan-benefits`
+- Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line) if you don't already have it
+- `heroku login` # Then enter your username and password and follow the prompts to create a new SSH public key
+- `heroku git:clone -a loan-benefits`
+- `cd loan-benefits`
 
 
 #### Setup
