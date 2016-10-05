@@ -27,3 +27,4 @@
     - Symlinks that `/client/dist` directory to `/public`
 - Then it detects the rails buildpack and builds the rails project as per usual
 - When it runs in production, it looks for the root `/public` directory and finds the `/client/dist` files all nicely smooshed together and uglified.
+- test rename
