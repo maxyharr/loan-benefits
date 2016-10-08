@@ -2,7 +2,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import '../../public/css/styles.global.scss';
 import { NgRedux, select } from 'ng2-redux';
 import { Observable } from 'rxjs/Rx';
-import { HasDataActions } from '../actions/has-data.actions';
+import { DataActions } from '../actions/data.actions';
 import { IAppState } from '../store';
 
 @Component({
@@ -11,24 +11,23 @@ import { IAppState } from '../store';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  @select(['hasData']) hasData$: Observable<boolean>;
+  @select(['data']) data$: Observable<any>;
 
   // member to test subscribe model
-  hasData: boolean;
-  data: string = "No data yet..."
+  data: string = "Default no data";
 
   constructor(
-    private hasDataActions: HasDataActions,
+    private dataActions: DataActions,
     private ngRedux: NgRedux<IAppState>
   ) {}
 
   ngOnInit() {
-    this.hasData$.subscribe(hasDataGotBack => {
-      if (hasDataGotBack) this.data = "We have data!!!";
+    this.data$.subscribe(_data => {
+      if (_data) this.data = _data;
     });
   }
 
   onClick() {
-    this.hasDataActions.updateDispatch(true);
+    this.dataActions.updateDispatch("We have data!");
   }
 }

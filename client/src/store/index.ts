@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
-import { hasDataReducer } from './has-data.reducer';
+import { dataReducer } from './data.reducer';
 
 export interface IAppState {
-  hasData?: boolean
+  data?: any;
 };
 
-export const rootReducer = combineReducers<IAppState>({
-  hasData: hasDataReducer
-});
+export const rootReducer = combineReducers<IAppState>(
+  {
+    data: dataReducer,
+  }
+);

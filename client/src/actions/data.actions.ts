@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { NgRedux } from 'ng2-redux';
 import { IAppState } from '../store';
 
-export const HAS_DATA_ACTIONS = {
-  UPDATE_HAS_DATA: 'UPDATE_HAS_DATA'
+export const DATA_ACTIONS = {
+  UPDATE_DATA: 'UPDATE_DATA'
 }
 
 /**
@@ -13,20 +13,20 @@ export const HAS_DATA_ACTIONS = {
  * as a replacement for redux-thunk.
  */
 @Injectable()
-export class HasDataActions {
+export class DataActions {
   constructor(private ngRedux: NgRedux<IAppState>) {}
 
-  updateDispatch(hasData: boolean) {
+  updateDispatch(data: any) {
     setTimeout(() => {
       // Pretend we call out to a service here (async promise)
-      this.ngRedux.dispatch(this.update(hasData))
+      this.ngRedux.dispatch(this.update(data));
     }, 1000);
   }
 
-  update(hasData: boolean) {
+  update(newData: any) {
     return {
-      type: HAS_DATA_ACTIONS.UPDATE_HAS_DATA,
-      payload: hasData
+      type: DATA_ACTIONS.UPDATE_DATA,
+      payload: newData
     }
   }
 }

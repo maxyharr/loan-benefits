@@ -1,15 +1,14 @@
+import { NgReduxModule, NgRedux } from 'ng2-redux';
+import * as createLogger from 'redux-logger';
+import { rootReducer, IAppState } from '../store';
+
 import { NgModule, ApplicationRef } from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { AppComponent } from './app.component';
+import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
 
-import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr'
-
-import { NgReduxModule, NgRedux } from 'ng2-redux';
-import * as createLogger from 'redux-logger';
-
-import { rootReducer, IAppState } from '../store'; // looks for index.ts in store directory by default
-
-import {HasDataActions} from '../actions/has-data.actions';
+// Provider Actions
+import {DataActions} from '../actions/data.actions';
 
 @NgModule({
   imports: [
@@ -20,52 +19,52 @@ import {HasDataActions} from '../actions/has-data.actions';
     AppComponent
   ],
   providers: [
-    HasDataActions
+    DataActions
   ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {
   constructor(
     public appRef: ApplicationRef,
-    ngRedux: NgRedux<IAppState>
+    private ngRedux: NgRedux<IAppState>
   ) {
-    ngRedux.configureStore(rootReducer, {}, [ createLogger() ]);
+    this.ngRedux.configureStore(rootReducer, {}, [ createLogger() ]);
   }
-
-  // TODO: Configre HMR for NG2-Redux store
-  hmrOnInit(store: any): void {
-    if (!store || !store.state) return;
-    console.log('HMR store', store);
-    console.log('store.state.data:', store.state.data)
+  hmrOnInit(hotStore: any): void {
+    if (!hotStore || !hotStore.state) return;
     // inject AppStore here and update it
-    // this.AppStore.update(store.state)
-    if ('restoreInputValues' in store) {
-      store.restoreInputValues();
+    const initialState = hotStore.state;
+    // this.ngRedux.configureStore(rootReducer, initialState, [ createLogger() ]); // STORE ALREADY CONFIGURED ERROR!
+
+    if ('restoreInputValues' in hotStore) {
+      hotStore.restoreInputValues();
     }
     // change detection
     this.appRef.tick();
-    delete store.state;
-    delete store.restoreInputValues;
+    delete hotStore.state;
+    delete hotStore.restoreInputValues;
   }
 
-  hmrOnDestroy(store: any): void {
-    var cmpLocation = this.appRef.components.map(cmp => cmp.location.nativeElement);
+  hmrOnDestroy(hotStore: any): void {
+    let cmpLocation = this.appRef.components.map(cmp => cmp.location.nativeElement);
     // recreate elements
-    store.disposeOldHosts = createNewHosts(cmpLocation)
+    hotStore.disposeOldHosts = createNewHosts(cmpLocation);
+
     // inject your AppStore and grab state then set it on store
-    // var appState = this.AppStore.get()
-    store.state = {data: 'yolo'};
-    // store.state = Object.assign({}, appState)
+    let appState = this.ngRedux.getState();
+    hotStore.state = Object.assign({}, appState);
+
+
     // save input values
-    store.restoreInputValues  = createInputTransfer();
+    hotStore.restoreInputValues  = createInputTransfer();
     // remove styles
     removeNgStyles();
   }
 
-  hmrAfterDestroy(store: any): void {
+  hmrAfterDestroy(hotStore: any): void {
     // display new elements
-    store.disposeOldHosts()
-    delete store.disposeOldHosts;
+    hotStore.disposeOldHosts();
+    delete hotStore.disposeOldHosts;
     // anything you need done the component is removed
   }
 }
