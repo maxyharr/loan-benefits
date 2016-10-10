@@ -2,13 +2,18 @@ import { NgReduxModule, NgRedux } from 'ng2-redux';
 import * as createLogger from 'redux-logger';
 import { rootReducer, IAppState } from '../store';
 
-import { NgModule, ApplicationRef } from '@angular/core';
+import { NgModule, ApplicationRef, enableProdMode } from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
 
 // Provider Actions
 import {DataActions} from '../actions/data.actions';
+
+const prod = process.env.NODE_ENV === 'production';
+if (prod) {
+  enableProdMode();
+}
 
 @NgModule({
   imports: [
@@ -28,7 +33,7 @@ export class AppModule {
     public appRef: ApplicationRef,
     private ngRedux: NgRedux<IAppState>
   ) {
-    this.ngRedux.configureStore(rootReducer, {}, [ createLogger() ]);
+    this.ngRedux.configureStore(rootReducer, {}, [ prod ? null : createLogger() ]);
   }
   hmrOnInit(hotStore: any): void {
     if (!hotStore || !hotStore.state) return;
