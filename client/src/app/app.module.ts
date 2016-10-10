@@ -33,7 +33,8 @@ export class AppModule {
     public appRef: ApplicationRef,
     private ngRedux: NgRedux<IAppState>
   ) {
-    this.ngRedux.configureStore(rootReducer, {}, [ prod ? null : createLogger() ]);
+    const reduxMiddleware = prod ? [] : [createLogger()];
+    this.ngRedux.configureStore(rootReducer, {}, reduxMiddleware);
   }
   hmrOnInit(hotStore: any): void {
     if (!hotStore || !hotStore.state) return;
