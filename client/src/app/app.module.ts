@@ -11,8 +11,9 @@ import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularcla
 import {DataActions} from '../actions/data.actions';
 
 const prod = process.env.NODE_ENV === 'production';
+console.log('process.env:', process.env);
+console.log('process.env.NODE_ENV:', process.env.NODE_ENV);
 if (prod) {
-  console.log('running in prod mode...');
   enableProdMode();
 }
 
