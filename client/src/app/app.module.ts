@@ -10,9 +10,7 @@ import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularcla
 // Provider Actions
 import {DataActions} from '../actions/data.actions';
 
-const prod = process.env.NODE_ENV === 'production';
-console.log('process.env:', process.env);
-console.log('process.env.NODE_ENV:', process.env.NODE_ENV);
+const prod = process.env.ENV === 'production' || process.env.NODE_ENV === 'production';
 if (prod) {
   enableProdMode();
 }
