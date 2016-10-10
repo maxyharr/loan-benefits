@@ -34,7 +34,9 @@ export class AppModule {
     if (!hotStore || !hotStore.state) return;
     // inject AppStore here and update it
     const initialState = hotStore.state;
-    // this.ngRedux.configureStore(rootReducer, initialState, [ createLogger() ]); // STORE ALREADY CONFIGURED ERROR!
+    this.ngRedux.replaceReducer(() => {
+      return initialState;
+    });
 
     if ('restoreInputValues' in hotStore) {
       hotStore.restoreInputValues();
