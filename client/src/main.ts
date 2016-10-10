@@ -14,8 +14,7 @@ if (process.env.ENV === 'production') {
  */
 export function main(): Promise<any> {
   return platformBrowserDynamic()
-    .bootstrapModule(AppModule)
-    .catch(err => console.error(err));
+    .bootstrapModule(AppModule);
 }
 
 // needed for hmr (hot module replacement)
