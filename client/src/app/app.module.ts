@@ -12,6 +12,7 @@ import {DataActions} from '../actions/data.actions';
 
 const prod = process.env.NODE_ENV === 'production';
 if (prod) {
+  console.log('running in prod mode...');
   enableProdMode();
 }
 
