@@ -38,5 +38,5 @@
 - This is newer than typings which is newer than tsd
 - This way they get installed as npm packages that automatically provide the typings for npm packages that are missing them for typescript.
 - To use the @types namespace, install packages like so:
-	- `npm install --save-dev @types/*package-name*`
-	- example: `npm install --save-dev @types/lodash` 
+	- `npm install --save @types/*package-name*`
+	- example: `npm install --save @types/lodash`
