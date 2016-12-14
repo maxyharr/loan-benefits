@@ -31,3 +31,11 @@
 
 #### Updates
 - Updated repo name on Oct 5. run `git remote set-url origin https://github.com/mharris7190/loan-benefits.git` to update locally
+
+### Typings
+- Note: Maintain typings for newly installed packages using npm namespace @types, (not 'typings' or 'tsd').
+- This is newer than typings which is newer than tsd
+- This way they get installed as npm packages that automatically provide the typings for npm packages that are missing them for typescript.
+- To use the @types namespace, install packages like so:
+	- `npm install --save-dev @types/*package-name*`
+	- example: `npm install --save-dev @types/lodash` 
