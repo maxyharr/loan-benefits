@@ -13,10 +13,11 @@
 #### Setup
 - `bundle install`
 - `rake db:create`
-- `rails s -p 3001` # start rails server on port 3001
+- `rails s` # start rails server on port 3000
 - `cd client`
 - `npm install`
-- `npm start` or `npm run start:hot` # start front-end development server with hmr
+- `npm start` or `npm run start:hot` # start front-end development server with hmr on port 3001
+- point browser to localhost:3000
 
 #### How does it work?
 - 2 buildpacks are added to heroku - rails and node

@@ -7,9 +7,9 @@ import {User} from '../../types';
 @Component({
   template: `
     <h3>HR Home Page</h3>
-    <p>No user backend set up yet to handle current user. Just stubbing the new user service</p>
-    <p>Also broke hot module reloading when moving from ng2-redux to ngrx/store, but will either fix that in the future or force page reloads on code changes.</p>
-    <p>Email: {{user.email}}</p>
+    <p>Broke hot module reloading when moving from ng2-redux to ngrx/store, but will either fix that in the future.</p>
+    <p>Force page reloads seem to just do the trick for now anyway</p>
+    <p>Email retrieved from static user service: {{user?.email}}</p>
   `
 })
 export class HrHomePage implements OnInit {

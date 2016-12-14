@@ -4,6 +4,9 @@
 logs
 *.log
 
+# Keeps (added bc wtf?)
+*.keep
+
 # Runtime data
 pids
 *.pid
