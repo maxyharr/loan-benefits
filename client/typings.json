@@ -2,8 +2,6 @@
   "globalDependencies": {
     "core-js": "registry:dt/core-js",
     "jasmine": "registry:dt/jasmine",
-    "node": "registry:dt/node",
-    "redux-logger": "registry:dt/redux-logger",
-    "redux": "registry:dt/redux"
+    "node": "registry:dt/node"
   }
 }
