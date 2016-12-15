@@ -4,13 +4,11 @@ Rails.application.routes.draw do
 
   get '/', to: 'client#index'
   get '/home', to: 'client#index', as: :client_home # /(*page) doesn't work because it matches all the other routes
+  get '/login', to: 'client#index', as: :client_login # /(*page) doesn't work because it matches all the other routes
 
   namespace :api do
-    resources :users, only: [:index]
-    # devise_scope :user do # Registration
-    #   post 'registration', to: 'registrations#create'
-    # end
-    # devise_for :users # Sessions
-    # resource :user
+    post 'login', to: 'user_sessions#create', as: :login
+    delete 'logout', to: 'user_sessions#destroy', as: :logout
+    resources :users, only: [:index, :create]
   end
 end

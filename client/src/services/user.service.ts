@@ -7,6 +7,10 @@ export class UserService {
     return request.get('/api/users.json');
   }
 
+  signUp(user): Promise<User> {
+    return request.post('/api/users.json', { user });
+  }
+
 }
 
 export default UserService;

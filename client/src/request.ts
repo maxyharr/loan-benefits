@@ -30,18 +30,18 @@ const baseFetch = (url: string, ops: RequestOps): Promise<any> => {
   return new Promise((resolve, reject) => {
     fetchPromise.then(res => {
       res.text().then(text => {
-        const bmRes = {
+        const urRes = {
           status: res.status,
           statusText: res.statusText,
           body: text
         };
         if (text && res.headers.get('Content-Type').includes('application/json')) {
-          bmRes.body = toCamelCase(JSON.parse(text));
+          urRes.body = toCamelCase(JSON.parse(text));
         }
         if (res.ok) {
-          resolve(bmRes.body);
+          resolve(urRes.body);
         } else {
-          reject(bmRes);
+          reject(urRes);
         }
       });
     });

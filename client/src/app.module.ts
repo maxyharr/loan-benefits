@@ -1,3 +1,4 @@
+import {ApplicationRef} from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { reducer } from './reducers';
 
@@ -10,7 +11,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardModule } from './modules/dashboard/dashboard.module';
 import { HrHomeModule } from './modules/hr-home/hr-home.module';
-// import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
+import { AuthModule } from './modules/auth/auth.module';
+import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
 
 // Provider Actions
 import {UserActions} from './actions/user.actions';
@@ -27,6 +29,7 @@ if (prod) {
     AppRoutingModule,
     DashboardModule,
     HrHomeModule,
+    AuthModule,
   ],
   declarations: [
     AppComponent
@@ -37,48 +40,48 @@ if (prod) {
   bootstrap: [ AppComponent ]
 })
 export class AppModule {
-  // constructor(
-  //   public appRef: ApplicationRef
-  // ) {}
+  constructor(
+    public appRef: ApplicationRef
+  ) {}
 
-  // hmrOnInit(hotStore: any): void {
-  //   if (!hotStore || !hotStore.state) return;
+  hmrOnInit(hotStore: any): void {
+    if (!hotStore || !hotStore.state) return;
 
-  //   // otherwise, inject AppStore here and update it
-  //   const initialState = hotStore.state;
-  //   this.ngRedux.replaceReducer(() => {
-  //     return initialState;
-  //   });
+    // otherwise, inject AppStore here and update it
+    const initialState = hotStore.state;
+    // this.ngRedux.replaceReducer(() => {
+    //   return initialState;
+    // });
 
-  //   if ('restoreInputValues' in hotStore) {
-  //     hotStore.restoreInputValues();
-  //   }
-  //   // change detection
-  //   this.appRef.tick();
-  //   delete hotStore.state;
-  //   delete hotStore.restoreInputValues;
-  // }
+    if ('restoreInputValues' in hotStore) {
+      hotStore.restoreInputValues();
+    }
+    // change detection
+    this.appRef.tick();
+    delete hotStore.state;
+    delete hotStore.restoreInputValues;
+  }
 
-  // hmrOnDestroy(hotStore: any): void {
-  //   let cmpLocation = this.appRef.components.map(cmp => cmp.location.nativeElement);
-  //   // recreate elements
-  //   hotStore.disposeOldHosts = createNewHosts(cmpLocation);
+  hmrOnDestroy(hotStore: any): void {
+    let cmpLocation = this.appRef.components.map(cmp => cmp.location.nativeElement);
+    // recreate elements
+    hotStore.disposeOldHosts = createNewHosts(cmpLocation);
 
-  //   // inject your AppStore and grab state then set it on store
-  //   let appState = this.ngRedux.getState();
-  //   hotStore.state = Object.assign({}, appState);
+    // inject your AppStore and grab state then set it on store
+    // let appState = this.ngRedux.getState();
+    // hotStore.state = Object.assign({}, appState);
 
 
-  //   // save input values
-  //   hotStore.restoreInputValues  = createInputTransfer();
-  //   // remove styles
-  //   removeNgStyles();
-  // }
+    // save input values
+    hotStore.restoreInputValues  = createInputTransfer();
+    // remove styles
+    removeNgStyles();
+  }
 
-  // hmrAfterDestroy(hotStore: any): void {
-  //   // display new elements
-  //   hotStore.disposeOldHosts();
-  //   delete hotStore.disposeOldHosts;
-  //   // anything you need done the component is removed
-  // }
+  hmrAfterDestroy(hotStore: any): void {
+    // display new elements
+    hotStore.disposeOldHosts();
+    delete hotStore.disposeOldHosts;
+    // anything you need done the component is removed
+  }
 }

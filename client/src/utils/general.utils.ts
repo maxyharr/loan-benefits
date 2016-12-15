@@ -62,6 +62,14 @@ export function buildQueryString(data: any, prefix: string = null): string {
   return pieces.join('&');
 }
 
+export function errorParser(errorsObj) {
+  const body = errorsObj.body;
+  const keys = Object.keys(body);
+  let res = '';
+  keys.forEach(key => res += `${key} ${body[key]}.\n`);
+  return res;
+}
+
 // Helpers
 
 function snakeCase(str: string): string {

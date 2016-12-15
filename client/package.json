@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Angular2 Frontend for LoanBenefits app bundled with Webpack",
   "scripts": {
-    "start": "webpack-dev-server --progress --port 3001 --inline",
-    "start:hot": "webpack-dev-server --progress --port 3001 --inline --hot",
+    "start": "webpack-dev-server --progress --port 4000 --inline",
+    "start:hot": "webpack-dev-server --progress --port 4000 --inline --hot",
     "test": "karma start",
     "build": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail"
   },
