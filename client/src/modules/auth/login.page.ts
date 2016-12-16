@@ -1,6 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SessionActions } from '../../actions/session.actions';
 import { UserActions } from '../../actions/user.actions';
+import * as userReducer from '../../reducers/user.reducer';
+import { Store } from '@ngrx/store';
+import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   template: `
@@ -14,8 +18,9 @@ import { UserActions } from '../../actions/user.actions';
     </form>
   `
 })
-export class LoginPage {
+export class LoginPage implements OnInit, OnDestroy {
   private loggingIn: boolean = true;
+  private sub: Subscription;
 
   private user = {
     email: '',
@@ -25,13 +30,27 @@ export class LoginPage {
 
   constructor(
     private sessionActions: SessionActions,
-    private userActions: UserActions
+    private userActions: UserActions,
+    private store: Store<any>,
+    private router: Router
   ) {}
+
+  ngOnInit() {
+    this.sub = userReducer.getCurrentUser(this.store).subscribe(user => {
+      if (user) this.router.navigate(['/home']);
+    });
+  }
 
   onSubmit(): void {
     if (this.loggingIn)
-      this.sessionActions.login(this.user);
+      this.sessionActions.login(this.user).then(() => {
+
+      });
     else if (!this.loggingIn) // Signing up
       this.userActions.signUp(this.user);
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
 }

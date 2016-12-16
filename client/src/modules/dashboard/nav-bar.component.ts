@@ -2,25 +2,34 @@ import { Component, Input } from '@angular/core';
 import { User } from '../../types';
 import { SessionActions } from '../../actions/session.actions';
 import { UserActions } from '../../actions/user.actions';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'nav-bar',
   template: `
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-6">
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Uproot</a>
         </div>
-        <div class="col-md-6">
-          <template [ngIf]="user">
-            <i class="fa fa-times"></i> <a href="#" (click)="logout(); $event.preventDefault();">Logout</a>
-          </template>
-
-          <template [ngIf]="!user">
-            <i class="fa fa-times"></i> <a [routerLink]="['/login']">Login</a>
-          </template>
+        <div class="collapse navbar-collapse" id="navbar">
+          <ul class="nav navbar-nav">
+            <li><a [routerLink]="['/home']">Home</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a *ngIf="user" href="#" (click)="logout(); $event.preventDefault();">Logout</a>
+              <a *ngIf="!user" [routerLink]="['/login']">Login</a>
+            </li>
+          </ul>
         </div>
       </div>
-    </div>
+    </nav>
   `
 })
 export class NavBarComponent {
@@ -28,10 +37,18 @@ export class NavBarComponent {
 
   constructor(
     private sessionActions: SessionActions,
-    private userActions: UserActions
+    private userActions: UserActions,
+    private router: Router
   ) {}
 
+  ngOnChanges(changeRecord) {}
+
   logout() {
-    this.sessionActions.logout().then(() => this.userActions.loadUser());
+    this.sessionActions.logout().then(() => this.userActions.loadUser().then(() => {
+      // navigate to login after logging out
+      if (!this.user) {
+        this.router.navigate(['/login']);
+      }
+    }));
   }
 }
