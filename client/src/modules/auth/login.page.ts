@@ -54,6 +54,6 @@ export class LoginPage implements OnDestroy {
   }
 
   ngOnDestroy() {
-    this.sub.unsubscribe();
+    if (this.sub) this.sub.unsubscribe();
   }
 }
