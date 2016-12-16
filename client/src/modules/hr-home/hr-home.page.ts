@@ -6,10 +6,15 @@ import {User} from '../../types';
 
 @Component({
   template: `
-    <h3>HR Home Page</h3>
-    <p>Broke hot module reloading when moving from ng2-redux to ngrx/store, but will either fix that in the future.</p>
-    <p>Force page reloads seem to just do the trick for now anyway</p>
-    <p>Email retrieved from static user service: {{user?.email}}</p>
+    <template [ngIf]="!user">
+      <h3>HR Home Page</h3>
+      <p>You are not signed in...</p>
+    </template>
+
+    <template [ngIf]="user">
+      <h2>Welcome {{user.email}}, you are now signed in...</h2>
+    </template>
+
   `
 })
 export class HrHomePage implements OnInit {
