@@ -16,8 +16,8 @@
 - `rails s` # start rails server on port 3000
 - `cd client`
 - `npm install`
-- `npm start` or `npm run start:hot` # start front-end development server with hmr on port 3001
-- point browser to localhost:3000
+- `npm start` or `npm run start:hot` # start front-end development server with hmr on port 4000
+- point browser to localhost:4000 (api calls are proxied through to port 3000 and then served by rails)
 
 #### How does it work?
 - 2 buildpacks are added to heroku - rails and node
@@ -28,10 +28,6 @@
     - Symlinks that `/client/dist` directory to `/public`
 - Then it detects the rails buildpack and builds the rails project as per usual
 - When it runs in production, it looks for the root `/public` directory and finds the `/client/dist` files all nicely smooshed together and uglified.
-
-
-#### Updates
-- Updated repo name on Oct 5. run `git remote set-url origin https://github.com/mharris7190/loan-benefits.git` to update locally
 
 ### Typings
 - Note: Maintain typings for newly installed packages using npm namespace @types, (not 'typings' or 'tsd').
@@ -44,3 +40,5 @@
 ### Assets
 - Do not use rails asset pipeline. We will be using webpack bundling of vendor.ts to compile css and js assets as well as others.
 - If you have a package such as bootstrap you'd like to include, install it via npm in /client and add it to vendor.ts.
+
+#### Updates
