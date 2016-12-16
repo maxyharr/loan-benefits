@@ -50,3 +50,6 @@ group :development, :test do
   gem 'spring'
 end
 
+group :production, :staging, :profile do
+  gem 'rails_12factor', '~> 0.0.3'
+end
