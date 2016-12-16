@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Uproot</a>
+          <a class="navbar-brand" [routerLink]="['/home']">Uproot</a>
         </div>
         <div class="collapse navbar-collapse" id="navbar">
           <ul class="nav navbar-nav">
