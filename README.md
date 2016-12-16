@@ -40,3 +40,7 @@
 - To use the @types namespace, install packages like so:
 	- `npm install --save @types/*package-name*`
 	- example: `npm install --save @types/lodash`
+
+### Assets
+- Do not use rails asset pipeline. We will be using webpack bundling of vendor.ts to compile css and js assets as well as others.
+- If you have a package such as bootstrap you'd like to include, install it via npm in /client and add it to vendor.ts.
