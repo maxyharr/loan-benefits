@@ -1,4 +1,4 @@
-import '../public/css/styles.global.scss';
+import '../public/styles/index.scss';
 import { Component } from '@angular/core';
 import { UserActions } from './actions/user.actions';
 

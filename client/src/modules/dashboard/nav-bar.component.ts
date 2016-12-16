@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'nav-bar',
   template: `
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
@@ -23,8 +23,14 @@ import { Router } from '@angular/router';
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li>
-              <a *ngIf="user" href="#" (click)="logout(); $event.preventDefault();">Logout</a>
-              <a *ngIf="!user" [routerLink]="['/login']">Login</a>
+              <a *ngIf="user" href="#" (click)="logout(); $event.preventDefault();">
+                <i class="fa fa-sign-out"></i>
+                Logout
+              </a>
+              <a *ngIf="!user" [routerLink]="['/login']">
+                <i class="fa fa-sign-in"></i>
+                Login
+              </a>
             </li>
           </ul>
         </div>

@@ -35,24 +35,14 @@ module.exports = {
         loader: 'file?name=assets/[name].[hash].[ext]'
       },
       {
-        test: /\.scss$/,
-        exclude: [/node_modules/, /\.global\.scss$/],
-        loaders: ['raw-loader', 'sass-loader']
-      },
-      {
-        test: /\.global\.scss$/,
-        exclude: [/node_modules/],
-        loaders: ['style-loader', 'css-loader', 'sass-loader']
-      },
-      {
         test: /\.css$/,
         exclude: helpers.root('src'),
         loader: ExtractTextPlugin.extract('style', 'css?sourceMap')
       },
       {
-        test: /\.css$/,
-        include: helpers.root('src'),
-        loader: 'raw-loader'
+        test: /\.scss$/,
+        exclude: [/node_modules/, /\.global\.scss$/],
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader')
       }
     ]
   },
@@ -64,6 +54,8 @@ module.exports = {
 
     new HtmlWebpackPlugin({
       template: 'src/index.html'
-    })
+    }),
+
+    new ExtractTextPlugin("[name].css")
   ]
 };
