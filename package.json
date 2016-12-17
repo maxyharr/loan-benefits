@@ -6,5 +6,8 @@
   "scripts": {
     "postinstall": "cd client && npm install && npm run build && cd .. && npm run link_public",
     "link_public": "rm -rf public && ln -s client/dist public"
+  },
+  "dependencies": {
+    "favicons-webpack-plugin": "0.0.7"
   }
 }

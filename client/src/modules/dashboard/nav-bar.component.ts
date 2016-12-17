@@ -3,6 +3,7 @@ import { User } from '../../types';
 import { SessionActions } from '../../actions/session.actions';
 import { UserActions } from '../../actions/user.actions';
 import { Router } from '@angular/router';
+// const TreeLogo = require('../../../public/images/tree-logo.png');
 
 @Component({
   selector: 'nav-bar',
@@ -15,7 +16,10 @@ import { Router } from '@angular/router';
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" [routerLink]="['/home']">Uproot</a>
+          <a class="navbar-brand" [routerLink]="['/home']">
+            <!--<img [src]="TreeLogo"/>--> <!-- The require isn't working properly -- at least for dev mode -->
+            Uproot
+          </a>
         </div>
         <div class="collapse navbar-collapse" id="navbar">
           <ul class="nav navbar-nav">

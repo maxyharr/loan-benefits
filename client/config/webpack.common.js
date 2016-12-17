@@ -1,6 +1,7 @@
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 var helpers = require('./helpers');
 
 const prod = process.env.NODE_ENV == 'production' || process.env.ENV == 'production';
@@ -32,7 +33,7 @@ module.exports = {
       { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader" },
       {
         test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
-        loader: 'file?name=assets/[name].[hash].[ext]'
+        loader: 'file-loader?name=[name].[hash].[ext]'
       },
       {
         test: /\.css$/,
@@ -55,5 +56,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'src/index.html'
     }),
+
+    // new FaviconsWebpackPlugin('./public/images/tree-logo.png')
   ]
 };
