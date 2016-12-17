@@ -8,14 +8,17 @@ import { UserActions } from '../../actions/user.actions';
 
 @NgModule({
   declarations: [
-    LoginPage
+    LoginPage,
   ],
   imports: [
     RouterModule,
     CommonModule,
     FormsModule
   ],
-  providers: [UserActions, SessionActions],
+  providers: [
+    UserActions,
+    SessionActions
+  ],
   exports: []
 })
 export class AuthModule {}

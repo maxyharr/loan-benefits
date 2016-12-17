@@ -1,3 +1,9 @@
 @import './main';
 @import './colors';
+@import './spacing';
+
+// Component styles
 @import './components/nav-bar';
+
+// Uproot styles (cards, buttons, fonts, etc..)
+@import './uproot/card';

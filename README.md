@@ -40,5 +40,7 @@
 ### Assets
 - Do not use rails asset pipeline. We will be using webpack bundling of vendor.ts to compile css and js assets as well as others.
 - If you have a package such as bootstrap you'd like to include, install it via npm in /client and add it to vendor.ts.
+- stylesheets in development mode by default are just processed with typical css loaders, but not bundled. This allows css changes to be triggered in HMR (except for node_module css)
+- webpack.prod.js handles bundling app css through ExtractTextPlugin
 
 #### Updates

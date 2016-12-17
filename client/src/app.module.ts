@@ -15,7 +15,7 @@ import { AuthModule } from './modules/auth/auth.module';
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
 
 // Provider Actions
-import {UserActions} from './actions/user.actions';
+import { UserActions } from './actions/user.actions';
 
 const prod = process.env.ENV === 'production' || process.env.NODE_ENV === 'production';
 if (prod) {

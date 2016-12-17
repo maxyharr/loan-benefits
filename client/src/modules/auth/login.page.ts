@@ -9,14 +9,41 @@ import { User } from '../../types';
 
 @Component({
   template: `
-    <button (click)="loggingIn = false" *ngIf="loggingIn">Sign Up!</button>
-    <button (click)="loggingIn = true" *ngIf="!loggingIn">I already have an account</button>
-    <form (submit)="onSubmit()">
-      <input type="text" name="email" [(ngModel)]="userForm.email" placeholder="Email"/>
-      <input type="password" name="password" [(ngModel)]="userForm.password" placeholder="Password"/>
-      <input type="password" name="passwordConfirmation" [(ngModel)]="userForm.passwordConfirmation" placeholder="Confirm password" *ngIf="!loggingIn"/>
-      <button type="submit">Login</button>
-    </form>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <div class="card raise-1">
+            <h2>{{loggingIn ? 'Login to Uproot' : 'Sign in'}}</h2>
+            <hr>
+            <form (submit)="onSubmit()">
+              <div class="form-group">
+                <label for="email">Email:</label>
+                <input class="form-control" type="text" name="email" [(ngModel)]="userForm.email" placeholder="Email"/>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Password:</label>
+                <input class="form-control" type="password" name="password" [(ngModel)]="userForm.password" placeholder="Password"/>
+              </div>
+
+              <div *ngIf="!loggingIn" class="form-group">
+                <label for="email">Confirm Password (6 characters):</label>
+                <input class="form-control" type="password" name="passwordConfirmation" [(ngModel)]="userForm.passwordConfirmation" placeholder="Confirm password"/>
+              </div>
+
+              <div class="text-center">
+                <button class="btn btn-primary" type="submit">{{loggingIn ? 'Login' : 'Sign up'}}</button>
+                <div class="small-top-buffer">
+                  <a (click)="loggingIn = false" *ngIf="loggingIn">(I don't have an account yet)<br> Sign me up!</a>
+                  <a (click)="loggingIn = true" *ngIf="!loggingIn">I already have an account</a>
+                </div>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   `
 })
 export class LoginPage implements OnDestroy {

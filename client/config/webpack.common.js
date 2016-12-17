@@ -41,8 +41,8 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        exclude: [/node_modules/, /\.global\.scss$/],
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader')
+        exclude: [/node_modules/],
+        loaders: ['style-loader', 'css-loader', 'sass-loader']
       }
     ]
   },
@@ -55,7 +55,5 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'src/index.html'
     }),
-
-    new ExtractTextPlugin("[name].css")
   ]
 };
