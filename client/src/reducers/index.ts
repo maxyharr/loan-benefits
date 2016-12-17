@@ -20,7 +20,7 @@ const productionReducer: ActionReducer<State> = combineReducers(reducers);
 
 export function reducer(state: any, action: any): any {
   console.log('process.env.NODE_ENV', process.env.NODE_ENV);
-  if (process.env.NODE_ENV === 'production') {
+  if (process.env.ENV == 'production' || process.env.NODE_ENV === 'production') {
     return productionReducer(state, action);
   } else {
     return developmentReducer(state, action);
