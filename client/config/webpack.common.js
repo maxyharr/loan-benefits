@@ -57,6 +57,6 @@ module.exports = {
       template: 'src/index.html'
     }),
 
-    // new FaviconsWebpackPlugin('./public/images/tree-logo.png')
+    new FaviconsWebpackPlugin('./public/images/tree-logo.png')
   ]
 };
