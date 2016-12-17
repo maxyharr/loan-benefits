@@ -8,10 +8,10 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'nav-bar',
   template: `
-    <nav class="navbar">
+    <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+          <button type="button" class="navbar-toggle" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="navbar">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -21,7 +21,7 @@ import { Router } from '@angular/router';
             Uproot
           </a>
         </div>
-        <div class="collapse navbar-collapse" id="navbar">
+        <div class="collapse navbar-collapse" id="navbar" [ngbCollapse]="isCollapsed">
           <ul class="nav navbar-nav">
             <li><a [routerLink]="['/home']">Home</a></li>
           </ul>
@@ -44,6 +44,7 @@ import { Router } from '@angular/router';
 })
 export class NavBarComponent {
   @Input() user: User;
+  private isCollapsed: boolean = true;
 
   constructor(
     private sessionActions: SessionActions,

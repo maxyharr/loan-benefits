@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { NavBarComponent } from './nav-bar.component';
 import { UserActions } from '../../actions/user.actions';
 import { SessionActions } from '../../actions/session.actions';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // import { NgbModule, NgbDropdownConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -15,7 +16,7 @@ import { SessionActions } from '../../actions/session.actions';
   imports: [
     RouterModule,
     CommonModule,
-    // NgbModule,
+    NgbModule,
   ],
   providers: [
     // NgbDropdownConfig,
