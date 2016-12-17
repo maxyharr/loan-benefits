@@ -39,11 +39,6 @@ module.exports = {
         test: /\.css$/,
         exclude: helpers.root('src'),
         loader: ExtractTextPlugin.extract('style', 'css?sourceMap')
-      },
-      {
-        test: /\.scss$/,
-        exclude: [/node_modules/],
-        loaders: (prod ? ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader') : ['style-loader', 'css-loader', 'sass-loader'] )
       }
     ]
   },
