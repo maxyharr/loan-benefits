@@ -50,8 +50,8 @@ module.exports = {
 
     new HtmlWebpackPlugin({
       template: 'src/index.html'
-    }),
+    })
 
-    new FaviconsWebpackPlugin('./public/images/tree-logo.png')
+    // ,new FaviconsWebpackPlugin('./public/images/tree-logo.png')
   ]
 };
