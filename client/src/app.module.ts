@@ -13,6 +13,7 @@ import { DashboardModule } from './modules/dashboard/dashboard.module';
 import { HrHomeModule } from './modules/hr-home/hr-home.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
+import { SimpleNotificationsModule } from 'angular2-notifications';
 
 // Provider Actions
 import { UserActions } from './actions/user.actions';
@@ -24,6 +25,7 @@ if (prod) {
 
 @NgModule({
   imports: [
+    SimpleNotificationsModule,
     BrowserModule,
     StoreModule.provideStore(reducer),
     AppRoutingModule,

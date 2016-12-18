@@ -6,7 +6,7 @@ class Api::UserSessionsController < Api::BaseController
     if @user = login(user_params[:email], user_params[:password])
       head :ok
     else
-      render json: { errors: "Unable to log in" }, status: 422
+      render json: { message: "Email or password is invalid" }, status: 422
     end
   end
 

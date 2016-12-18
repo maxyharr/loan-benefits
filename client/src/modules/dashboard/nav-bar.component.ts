@@ -3,6 +3,7 @@ import { User } from '../../types';
 import { SessionActions } from '../../actions/session.actions';
 import { UserActions } from '../../actions/user.actions';
 import { Router } from '@angular/router';
+import { NotificationsService } from 'angular2-notifications';
 // const TreeLogo = require('../../../public/images/tree-logo.png');
 
 @Component({
@@ -49,7 +50,8 @@ export class NavBarComponent {
   constructor(
     private sessionActions: SessionActions,
     private userActions: UserActions,
-    private router: Router
+    private router: Router,
+    private toastService: NotificationsService
   ) {}
 
   ngOnChanges(changeRecord) {}
@@ -58,6 +60,7 @@ export class NavBarComponent {
     this.sessionActions.logout().then(() => this.userActions.loadUser().then(() => {
       // navigate to login after logging out
       if (!this.user) {
+        this.toastService.success('success', 'Logged out');
         this.router.navigate(['/login']);
       }
     }));

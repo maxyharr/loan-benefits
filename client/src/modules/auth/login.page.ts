@@ -6,6 +6,7 @@ import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { User } from '../../types';
+import { NotificationsService } from 'angular2-notifications';
 
 @Component({
   template: `
@@ -60,7 +61,8 @@ export class LoginPage implements OnDestroy {
     private sessionActions: SessionActions,
     private userActions: UserActions,
     private store: Store<any>,
-    private router: Router
+    private router: Router,
+    private toastService: NotificationsService,
   ) {}
 
   onSubmit(): void {
@@ -76,7 +78,10 @@ export class LoginPage implements OnDestroy {
 
   postLogin() {
     this.sub = userReducer.getCurrentUser(this.store).subscribe(user => {
-      if (user) this.router.navigate(['/home']);
+      if (user) {
+        this.toastService.success('Success', 'You logged in.');
+        this.router.navigate(['/home']);
+      }
     });
   }
 

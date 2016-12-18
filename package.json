@@ -1,7 +1,7 @@
 {
   "engines": {
     "npm": "3.10.x",
-    "node": "7.2.1"
+    "node": "6.9.2"
   },
   "scripts": {
     "postinstall": "cd client && npm install && npm run build && cd .. && npm run link_public",

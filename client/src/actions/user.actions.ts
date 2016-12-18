@@ -2,12 +2,16 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { UserService } from '../services/user.service';
 import { errorParser } from '../utils/general.utils';
+import { NotificationsService } from 'angular2-notifications';
 
 @Injectable()
 export class UserActions {
   userService: UserService = new UserService();
 
-  constructor(private store: Store<any>) {}
+  constructor(
+    private store: Store<any>,
+    private toastService: NotificationsService
+  ) {}
 
   loadUser(): Promise<any> {
     return this.userService.getUser().then(user => {
@@ -18,8 +22,8 @@ export class UserActions {
   signUp(user): Promise<any> {
     return this.userService.signUp(user).then(() => {
       this.loadUser();
-    }).catch((errors) => {
-      alert(errorParser(errors)); // TODO: Don't use alert in the future
+    }).catch(errors => {
+      this.toastService.error('oops!', errorParser(errors));
     });
   }
 }
