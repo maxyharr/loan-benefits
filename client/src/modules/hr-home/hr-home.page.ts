@@ -6,15 +6,9 @@ import {User} from '../../types';
 
 @Component({
   template: `
-    <template [ngIf]="!user">
-      <h3>HR Home Page</h3>
-      <p>You are not signed in...</p>
-    </template>
-
     <template [ngIf]="user">
       <h2>Welcome {{user.email}}, you are now signed in...</h2>
     </template>
-
   `
 })
 export class HrHomePage implements OnInit {

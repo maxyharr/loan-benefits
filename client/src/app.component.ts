@@ -1,6 +1,7 @@
 import '../public/styles/index.scss';
 import { Component } from '@angular/core';
 import { UserActions } from './actions/user.actions';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'main-app',
@@ -9,7 +10,11 @@ import { UserActions } from './actions/user.actions';
   `
 })
 export class AppComponent {
-  constructor(private userActions: UserActions) {}
+  private titleService = new Title();
+
+  constructor(private userActions: UserActions) {
+    this.titleService.setTitle('Uproot');
+  }
 
   ngOnInit() {
     this.userActions.loadUser();

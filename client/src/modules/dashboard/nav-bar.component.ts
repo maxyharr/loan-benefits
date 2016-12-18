@@ -22,10 +22,10 @@ import { Router } from '@angular/router';
           </a>
         </div>
         <div class="collapse navbar-collapse" id="navbar" [ngbCollapse]="isCollapsed">
-          <ul class="nav navbar-nav">
-            <li><a [routerLink]="['/home']">Home</a></li>
-          </ul>
           <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="http://megan4224.wixsite.com/uproot">About Us</a>
+            </li>
             <li>
               <a *ngIf="user" href="#" (click)="logout(); $event.preventDefault();">
                 <i class="fa fa-sign-out"></i>
