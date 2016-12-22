@@ -14,7 +14,7 @@ import { NotificationsService } from 'angular2-notifications';
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
           <div class="card raise-1">
-            <h2>{{loggingIn ? 'Login to Uproot' : 'Sign in'}}</h2>
+            <h2>{{loggingIn ? 'Log In to UprootHR' : 'Sign in'}}</h2>
             <hr>
             <form (submit)="onSubmit()">
               <div class="form-group">

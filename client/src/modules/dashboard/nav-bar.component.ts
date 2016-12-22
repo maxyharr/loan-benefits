@@ -19,13 +19,13 @@ import { NotificationsService } from 'angular2-notifications';
           </button>
           <a class="navbar-brand" [routerLink]="['/home']">
             <!--<img [src]="TreeLogo"/>--> <!-- The require isn't working properly -- at least for dev mode -->
-            Uproot
+            UprootHR
           </a>
         </div>
         <div class="collapse navbar-collapse" id="navbar" [ngbCollapse]="isCollapsed">
           <ul class="nav navbar-nav navbar-right">
             <li>
-              <a href="http://megan4224.wixsite.com/uproot">About Us</a>
+              <a href="http://www.uproothr.com">About Us</a>
             </li>
             <li>
               <a *ngIf="user" href="#" (click)="logout(); $event.preventDefault();">
