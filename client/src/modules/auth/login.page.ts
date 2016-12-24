@@ -8,10 +8,10 @@ import { NotificationsService } from 'angular2-notifications';
 
 @Component({
   template: `
-    <div class="container">
+    <div class="container huge-top-buffer">
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
-          <div class="card raise-1">
+          <div class="card raise-1 padding">
             <h2>Log In</h2>
             <hr>
             <form (submit)="onSubmit()">

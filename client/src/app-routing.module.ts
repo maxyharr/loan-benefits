@@ -6,11 +6,13 @@ import { LoginPage } from './modules/auth/login.page';
 import { SignupPage } from './modules/auth/signup.page';
 import { LogoutGuard } from './guards/logout.guard';
 import { LoginGuard } from './guards/login.guard';
+import { StyleGuidePage } from './modules/style-guide/style-guide.page';
 
 export const routes: Routes = [
   { path: '', component: DashboardPage,
     children: [
       { path: '', redirectTo: 'home' },
+      { path: 'styleguide', component: StyleGuidePage },
       // { path: 'welcome', component: WelcomePage },
       // { path: 'registration', component: RegistrationPage },
       { path: 'home', component: HrHomePage, canActivate: [LoginGuard] },

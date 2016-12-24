@@ -1,4 +1,5 @@
 body {
+    padding-top: 50px; // Because of navbar-fixed-top class on navbar
     @extend .bg-softgray;
     font-family: Lato;
 }

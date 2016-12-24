@@ -8,6 +8,7 @@ import {
   enableProdMode } from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { AppComponent } from './app.component';
+import { StyleGuideModule } from './modules/style-guide/style-guide.module';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardModule } from './modules/dashboard/dashboard.module';
 import { HrHomeModule } from './modules/hr-home/hr-home.module';
@@ -25,6 +26,7 @@ if (prod) {
 
 @NgModule({
   imports: [
+    StyleGuideModule,
     SimpleNotificationsModule,
     BrowserModule,
     StoreModule.provideStore(reducer),

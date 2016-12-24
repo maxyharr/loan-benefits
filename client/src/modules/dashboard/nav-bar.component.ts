@@ -10,7 +10,7 @@ import * as _ from 'lodash';
 @Component({
   selector: 'nav-bar',
   template: `
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="navbar">

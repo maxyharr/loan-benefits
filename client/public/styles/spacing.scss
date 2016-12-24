@@ -27,6 +27,13 @@
 .big-right-buffer     { margin-right: 30px; }
 .huge-right-buffer    { margin-right: 50px; }
 
+.no-buffer            { margin: 0; }
+.tiny-buffer          { margin: 5px; }
+.small-buffer         { margin: 10px; }
+.buffer               { margin: 20px; }
+.big-buffer           { margin: 30px; }
+.huge-buffer          { margin: 50px; }
+
 
 // PADDINGS
 .no-top-padding        { padding-top: 0; }
@@ -57,4 +64,9 @@
 .big-right-padding     { padding-right: 30px; }
 .huge-right-padding    { padding-right: 50px; }
 
-
+.no-padding            { padding: 0; }
+.tiny-padding          { padding: 5px; }
+.small-padding         { padding: 10px; }
+.padding               { padding: 20px; }
+.big-padding           { padding: 30px; }
+.huge-padding          { padding: 50px; }
