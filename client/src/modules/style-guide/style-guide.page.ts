@@ -23,14 +23,139 @@ import { Component } from '@angular/core';
 
           <h3><b>Paragraphs:</b></h3>
           <p>&lt;p&gt;: The quick brown fox jumps over the lazy dog.</p>
+          <p class="small">.small: The quick brown fox jumps over the lazy dog.</p>
+          <p class="text-muted">.text-muted: The quick brown fox jumps over the lazy dog.</p>
           <p><b>bold text &lt;b&gt;: The quick brown fox jumps over the lazy dog.</b></p>
           <p><i>italicized text &lt;i&gt;: The quick brown fox jumps over the lazy dog.</i></p>
-          <p class="text-muted">.text-muted: The quick brown fox jumps over the lazy dog.</p>
 
           <hr>
 
           <h3><b>Spacing:</b></h3>
-          <p>TODO: Show spacing examples...</p>
+          <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <td><b>buffer (margin)</b></td>
+                <td>no (0px)</td>
+                <td>tiny (5px)</td>
+                <td>small (10px)</td>
+                <td> (20px)</td>
+                <td>big (30px)</td>
+                <td>huge (50px)</td>
+              </tr>
+
+              <tr>
+                <td>top</td>
+                <td>.no-top-buffer</td>
+                <td>.tiny-top-buffer</td>
+                <td>.small-top-buffer</td>
+                <td>.top-buffer</td>
+                <td>.big-top-buffer</td>
+                <td>.huge-top-buffer</td>
+              </tr>
+
+              <tr>
+                <td>bottom</td>
+                <td>.no-bottom-buffer</td>
+                <td>.tiny-bottom-buffer</td>
+                <td>.small-bottom-buffer</td>
+                <td>.bottom-buffer</td>
+                <td>.big-bottom-buffer</td>
+                <td>.huge-bottom-buffer</td>
+              </tr>
+
+              <tr>
+                <td>left</td>
+                <td>.no-left-buffer</td>
+                <td>.tiny-left-buffer</td>
+                <td>.small-left-buffer</td>
+                <td>.left-buffer</td>
+                <td>.big-left-buffer</td>
+                <td>.huge-left-buffer</td>
+              </tr>
+
+              <tr>
+                <td>right</td>
+                <td>.no-right-buffer</td>
+                <td>.tiny-right-buffer</td>
+                <td>.small-right-buffer</td>
+                <td>.right-buffer</td>
+                <td>.big-right-buffer</td>
+                <td>.huge-right-buffer</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>.no-buffer</td>
+                <td>.tiny-buffer</td>
+                <td>.small-buffer</td>
+                <td>.buffer</td>
+                <td>.big-buffer</td>
+                <td>.huge-buffer</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <td><b>padding</b></td>
+                <td>no (0px)</td>
+                <td>tiny (5px)</td>
+                <td>small (10px)</td>
+                <td> (20px)</td>
+                <td>big (30px)</td>
+                <td>huge (50px)</td>
+              </tr>
+
+              <tr>
+                <td>top</td>
+                <td>.no-top-padding</td>
+                <td>.tiny-top-padding</td>
+                <td>.small-top-padding</td>
+                <td>.top-padding</td>
+                <td>.big-top-padding</td>
+                <td>.huge-top-padding</td>
+              </tr>
+
+              <tr>
+                <td>bottom</td>
+                <td>.no-bottom-padding</td>
+                <td>.tiny-bottom-padding</td>
+                <td>.small-bottom-padding</td>
+                <td>.bottom-padding</td>
+                <td>.big-bottom-padding</td>
+                <td>.huge-bottom-padding</td>
+              </tr>
+
+              <tr>
+                <td>left</td>
+                <td>.no-left-padding</td>
+                <td>.tiny-left-padding</td>
+                <td>.small-left-padding</td>
+                <td>.left-padding</td>
+                <td>.big-left-padding</td>
+                <td>.huge-left-padding</td>
+              </tr>
+
+              <tr>
+                <td>right</td>
+                <td>.no-right-padding</td>
+                <td>.tiny-right-padding</td>
+                <td>.small-right-padding</td>
+                <td>.right-padding</td>
+                <td>.big-right-padding</td>
+                <td>.huge-right-padding</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>.no-padding</td>
+                <td>.tiny-padding</td>
+                <td>.small-padding</td>
+                <td>.padding</td>
+                <td>.big-padding</td>
+                <td>.huge-padding</td>
+              </tr>
+            </tbody>
+          </table>
 
           <hr>
 
