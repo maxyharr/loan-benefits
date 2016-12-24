@@ -13,8 +13,6 @@ export const routes: Routes = [
     children: [
       { path: '', redirectTo: 'home' },
       { path: 'styleguide', component: StyleGuidePage },
-      // { path: 'welcome', component: WelcomePage },
-      // { path: 'registration', component: RegistrationPage },
       { path: 'home', component: HrHomePage, canActivate: [LoginGuard] },
       { path: 'login', component: LoginPage, canActivate: [LogoutGuard] },
       { path: 'signup', component: SignupPage, canActivate: [LogoutGuard] },
