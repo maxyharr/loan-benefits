@@ -1,7 +1,5 @@
-@import 'colors';
-
 body {
-    background-color: $bg-gray;
+    @extend .bg-softgray;
     font-family: Lato;
 }
 

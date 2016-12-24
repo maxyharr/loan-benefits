@@ -1,5 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
-import { SessionActions } from '../../actions/session.actions';
+import { UserActions } from '../../actions/user.actions';
 import * as userReducer from '../../reducers/user.reducer';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
@@ -12,7 +12,7 @@ import { NotificationsService } from 'angular2-notifications';
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
           <div class="card raise-1">
-            <h2>Log In</h2>
+            <h2>Sign Up</h2>
             <hr>
             <form (submit)="onSubmit()">
               <div class="form-group">
@@ -21,16 +21,22 @@ import { NotificationsService } from 'angular2-notifications';
               </div>
 
               <div class="form-group">
-                <label for="email">Password:</label>
+                <label for="email">Password (6 characters):</label>
                 <input class="form-control" type="password" name="password" [(ngModel)]="userForm.password" placeholder="Password"/>
               </div>
 
+              <div class="form-group">
+                <label for="email">Confirm Password:</label>
+                <input class="form-control" type="password" name="passwordConfirmation" [(ngModel)]="userForm.passwordConfirmation" placeholder="Confirm password"/>
+              </div>
+
               <div class="text-center">
-                <button class="btn btn-primary" type="submit">Log In</button>
+                <button class="btn btn-primary" type="submit">Sign up</button>
                 <div class="small-top-buffer">
-                  <a [routerLink]="['/signup']">(I don't have an account yet)<br> Sign me up!</a>
+                  <a [routerLink]="['/login']">I already have an account</a>
                 </div>
               </div>
+
             </form>
           </div>
         </div>
@@ -38,7 +44,7 @@ import { NotificationsService } from 'angular2-notifications';
     </div>
   `
 })
-export class LoginPage implements OnDestroy {
+export class SignupPage implements OnDestroy {
   private sub: Subscription;
 
   private userForm = {
@@ -48,14 +54,14 @@ export class LoginPage implements OnDestroy {
   }
 
   constructor(
-    private sessionActions: SessionActions,
+    private userActions: UserActions,
     private store: Store<any>,
     private router: Router,
     private toastService: NotificationsService,
   ) {}
 
   onSubmit(): void {
-    this.sessionActions.login(this.userForm).then(() => {
+    this.userActions.signUp(this.userForm).then(() => {
       this.postLogin();
     });
   }

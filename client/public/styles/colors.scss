@@ -1,5 +1,26 @@
-$bg-gray: #f5f8fa;
+$softgray: #f5f8fa;
+.text-softgray { color: $softgray; }
+.bg-softgray { background-color: $softgray }
 
-.text-background-gray {
-  color: $bg-gray;
-}
+
+// Architect theme: https://color.adobe.com/The-Architect-color-theme-7191972/
+$lightblue: #C1E1ED;
+$lightgreen: #76C7C6;
+$green: #273D3B;
+$darkgreen: #131919;
+$orange: #E35C14;
+
+.text-lightblue { color: $lightblue; }
+.bg-lightblue { background-color: $lightblue; }
+
+.text-lightgreen { color: $lightgreen; }
+.bg-lightgreen { background-color: $lightgreen; }
+
+.text-green { color: $green; }
+.bg-green { background-color: $green; }
+
+.text-darkgreen { color: $darkgreen; }
+.bg-darkgreen { background-color: $darkgreen; }
+
+.text-orange { color: $orange; }
+.bg-orange { background-color: $orange; }

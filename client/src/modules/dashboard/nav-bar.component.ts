@@ -4,6 +4,7 @@ import { SessionActions } from '../../actions/session.actions';
 import { UserActions } from '../../actions/user.actions';
 import { Router } from '@angular/router';
 import { NotificationsService } from 'angular2-notifications';
+import * as _ from 'lodash';
 // const TreeLogo = require('../../../public/images/tree-logo.png');
 
 @Component({
@@ -32,9 +33,9 @@ import { NotificationsService } from 'angular2-notifications';
                 <i class="fa fa-sign-out"></i>
                 Logout
               </a>
-              <a *ngIf="!user" [routerLink]="['/login']">
+              <a *ngIf="!user" [routerLink]="loginOrSignupPath()">
                 <i class="fa fa-sign-in"></i>
-                Login
+                {{titleFor(loginOrSignupPath())}}
               </a>
             </li>
           </ul>
@@ -64,5 +65,20 @@ export class NavBarComponent {
         this.router.navigate(['/login']);
       }
     }));
+  }
+
+  loginOrSignupPath() {
+    if (this.router.isActive('/login', true)) {
+      return ['/signup'];
+    } else return ['/login'];
+  }
+
+  titleFor(arr) {
+    const str = arr[0].slice(1);
+    if (str === 'login') {
+      return 'Log In';
+    } else {
+      return 'Sign Up';
+    }
   }
 }

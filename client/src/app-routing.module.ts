@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardPage } from './modules/dashboard/dashboard.page';
 import { HrHomePage } from './modules/hr-home/hr-home.page';
 import { LoginPage } from './modules/auth/login.page';
+import { SignupPage } from './modules/auth/signup.page';
 import { LogoutGuard } from './guards/logout.guard';
 import { LoginGuard } from './guards/login.guard';
 
@@ -14,6 +15,7 @@ export const routes: Routes = [
       // { path: 'registration', component: RegistrationPage },
       { path: 'home', component: HrHomePage, canActivate: [LoginGuard] },
       { path: 'login', component: LoginPage, canActivate: [LogoutGuard] },
+      { path: 'signup', component: SignupPage, canActivate: [LogoutGuard] },
     ]
   }
 ];
