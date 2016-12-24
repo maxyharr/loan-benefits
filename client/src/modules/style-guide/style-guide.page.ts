@@ -179,7 +179,6 @@ import { Component } from '@angular/core';
             <div class="tiny-left-buffer tiny-right-buffer tiny-bottom-buffer col-md-3 col-sm-6 card raise-2 padding">.card.raise-2</div>
             <div class="tiny-left-buffer tiny-right-buffer tiny-bottom-buffer col-md-3 col-sm-6 card raise-3 padding">.card.raise-3</div>
             <div class="tiny-left-buffer tiny-right-buffer tiny-bottom-buffer col-md-3 col-sm-6 card raise-4 padding">.card.raise-4</div>
-            <div class="tiny-left-buffer tiny-right-buffer tiny-bottom-buffer col-md-3 col-sm-6 card raise-5 padding">.card.raise-5</div>
           </div>
 
 
